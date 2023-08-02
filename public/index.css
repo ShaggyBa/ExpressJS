@@ -1,3 +1,31 @@
 .nav-wrapper {
 	padding: 0 1.5rem;
 }
+
+.price {
+	font-size: 1.5rem;
+	color: rgb(29, 153, 66);
+}
+
+
+
+.course {
+	width: 100%;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.course img {
+	max-width: 600px;
+	height: auto;
+}
+
+.course h1 {
+	margin-bottom: 2rem;
+}
+
+.course .price.big {
+	font-size: 2rem;
+}

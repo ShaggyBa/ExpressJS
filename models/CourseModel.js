@@ -3,7 +3,7 @@ const uuid = require('uuid')
 const fs = require('fs')
 const path = require('path')
 
-class AddCourse {
+class Course {
 	constructor(title, price, imageURL) {
 		this.title = title
 		this.price = price
@@ -21,7 +21,7 @@ class AddCourse {
 	}
 
 	async save() {
-		const courses = await AddCourse.getAll()
+		const courses = await Course.getAll()
 
 		courses.push(this.toJSON())
 
@@ -53,6 +53,12 @@ class AddCourse {
 			)
 		})
 	}
+
+	static async getByID(id) {
+		const coursesData = await Course.getAll()
+
+		return coursesData.find(course => course.id === id)
+	}
 }
 
-module.exports = AddCourse
+module.exports = Course
