@@ -1,0 +1,11 @@
+<div class="course valign-wrapper center-align">
+	<form action="/courses/deletecourse" method="POST" class="col s12">
+		<h1>{{course.title}}</h1>
+		<img src="{{course.image}}">
+		<p class="price big">{{course.price}}</p>
+		<input type="submit" name="delete" value="Удалить курс?" class="btn btn-primary">
+
+		<input hidden type="text" class="validate" name="id" value="{{course.id}}">
+
+	</form>
+</div>

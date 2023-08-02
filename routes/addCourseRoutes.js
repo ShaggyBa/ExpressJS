@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
 	const course = req.body
-	const addCourse = new Course(course.title, course.price, course.imageURL)
+	const addCourse = new Course(course.title, course.price, course.image)
 	await addCourse.save()
 	res.redirect("courses")
 })

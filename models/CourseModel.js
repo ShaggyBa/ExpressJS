@@ -4,10 +4,10 @@ const fs = require('fs')
 const path = require('path')
 
 class Course {
-	constructor(title, price, imageURL) {
+	constructor(title, price, image) {
 		this.title = title
 		this.price = price
-		this.imageURL = imageURL
+		this.image = image
 		this.id = uuid.v4()
 	}
 
@@ -15,7 +15,7 @@ class Course {
 		return {
 			title: this.title,
 			price: this.price,
-			image: this.imageURL,
+			image: this.image,
 			id: this.id
 		}
 	}
@@ -37,8 +37,6 @@ class Course {
 
 			)
 		})
-
-
 	}
 
 	static getAll() {
@@ -58,6 +56,47 @@ class Course {
 		const coursesData = await Course.getAll()
 
 		return coursesData.find(course => course.id === id)
+	}
+
+	static async update(course) {
+		const courses = await Course.getAll()
+		const index = courses.findIndex(c => c.id === course.id)
+
+		courses[index] = course
+
+		return new Promise((resolve, reject) => {
+			fs.writeFile(
+				path.join(__dirname, '..', 'data', 'courses.json'),
+				JSON.stringify(courses),
+				(err) => {
+					if (err) reject(err)
+					else resolve()
+
+				}
+
+			)
+		})
+	}
+
+	static async deleteCourse(course) {
+		const courses = await Course.getAll()
+		const index = courses.findIndex(c => c.id === course.id)
+
+
+		courses.splice(index, 1)
+
+		return new Promise((resolve, reject) => {
+			fs.writeFile(
+				path.join(__dirname, '..', 'data', 'courses.json'),
+				JSON.stringify(courses),
+				(err) => {
+					if (err) reject(err)
+					else resolve()
+
+				}
+
+			)
+		})
 	}
 }
 

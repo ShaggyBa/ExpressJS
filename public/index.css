@@ -7,7 +7,9 @@
 	color: rgb(29, 153, 66);
 }
 
-
+.big {
+	font-size: 1.5rem;
+}
 
 .course {
 	width: 100%;
@@ -28,4 +30,8 @@
 
 .course .price.big {
 	font-size: 2rem;
+}
+
+.course input {
+	margin-bottom: 2rem;
 }
