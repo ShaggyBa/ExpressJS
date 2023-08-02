@@ -1,0 +1,33 @@
+<div class="row">
+	<h1>Add new course for mentally gifted</h1>
+
+	<form action="/addcourse" method="POST" class="col s12">
+		<div class="row">
+			<div class="input-field col s12">
+				<input placeholder="Course" id="nameOfCourse" name="title" type="text" class="validate" required>
+				<label for="nameOfCourse">Course</label>
+				<span class="helper-text" data-error="Write a valid course name">Enter a name of course</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<input placeholder="Price" id="priceOfCourse" name="price" type="number" class="validate" required min="1">
+				<label for="priceOfCourse">Price</label>
+				<span class="helper-text" data-error="Write price">Write price</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<input placeholder="URL of image" id="ImageURL" name="imageURL" type="text" class="validate" required>
+				<label for="ImageURL">URL of image</label>
+				<span class="helper-text" data-error="Write a valid image url">URL of image</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<button class="btn btn-primary">Add course</button>
+			</div>
+		</div>
+</div>
+</form>
+</div>
