@@ -1,5 +1,9 @@
 const express = require('express')
+const mongoose = require('mongoose')
+
+
 const expressHandleBars = require('express-handlebars')
+const path = require('path')
 
 const mainPageRoutes = require('./routes/mainPageRoutes')
 const coursesRoutes = require('./routes/coursesRoutes')
@@ -29,6 +33,19 @@ app.use('/card', cardRoutes)
 
 const PORT = process.env.PORT || 3000
 
+
+const url = 'mongodb://localhost:27017/express_learning'
+
+
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}`)
 })
+
+async function startConnect() {
+	await mongoose.connect(url, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true
+	})
+}
+
+startConnect()
